@@ -1,0 +1,45 @@
+{
+  "name": "gdocs-to-md-mcp",
+  "version": "0.1.0",
+  "description": "MCP server that reads Google Docs as markdown — for Claude Code, Cursor, etc.",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "gdocs-to-md-mcp": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "mcp",
+    "google-docs",
+    "claude",
+    "markdown",
+    "model-context-protocol"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nickthedude/gdocs-to-md-mcp"
+  },
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build",
+    "start": "node dist/cli.js",
+    "dev": "tsx src/cli.ts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.1",
+    "googleapis": "^148.0.0",
+    "open": "^10.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
