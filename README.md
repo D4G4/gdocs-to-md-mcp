@@ -2,6 +2,19 @@
 
 MCP server that reads Google Docs as clean markdown. Works with Claude Code, Cursor, Windsurf, or any MCP client.
 
+## Why markdown, not JSON?
+
+Google's [Workspace CLI](https://github.com/googleworkspace/cli) returns raw API JSON — a 500-line nested tree of `StructuralElement` objects where bold text is `textStyle.bold: true` buried inside a `TextRun` object. Your LLM can parse it. But it shouldn't have to.
+
+Research backs this up:
+
+- **[Up to 40% performance variance](https://arxiv.org/html/2411.10541v1)** depending on whether input is plain text, Markdown, JSON, or YAML
+- **[60.7% table accuracy](https://www.improvingagents.com/blog/best-input-data-format-for-llms/)** with Markdown-KV — 16 points ahead of JSON alternatives
+- **[10-15% fewer tokens](https://community.openai.com/t/markdown-is-15-more-token-efficient-than-json/841742)** than JSON for the same content
+- [Anthropic](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices), [OpenAI](https://developers.openai.com/api/docs/guides/prompt-engineering), and [Google](https://ai.google.dev/gemini-api/docs/prompting-strategies) all recommend markdown for document input
+
+JSON is great when agents need to *act* on structured data. Markdown is better when they need to *read and understand* content. This tool does the conversion so your LLM gets the format it actually comprehends.
+
 ## Quick start
 
 ```bash
