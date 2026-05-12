@@ -21,7 +21,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/nickthedude/gdocs-to-md-mcp"
+    "url": "https://github.com/D4G4/gdocs-to-md-mcp"
   },
   "scripts": {
     "build": "tsc",
